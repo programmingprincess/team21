@@ -1,9 +1,9 @@
 # Team 21
 Group project for CSE 360: Introduction to Software Engineering 
 
-##CSE360: Team Project – 100 points, 15% of final grade 
-
-## Description:
+## Project Guidelines - 
+CSE360: Team Project – 100 points, 15% of final grade 
+#### Description: 
 The objective is to apply software engineering principals in the creation of a project.  This project will be a simple dice game, which allows users to record their statistics, and see other users’ statistics.  The game should have win and lose conditions, and a minimum of 3 rules. Additionally, it should have a point or scoring system for ranking players.  Users should be able to view their statistics, as well as the statistics of other players.   
 The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint deliverables are due by 11:59pm on their respective day.
 
