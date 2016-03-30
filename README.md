@@ -13,10 +13,10 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 * Environment: GitHub Activity
 
 #### Week 1:  33%
-* Set up GitHub environment
-* Commit documents: minimum of use case diagram, and user stories, feature backlog
-* Each person should commit at least once, to show they are able to access the repository
-* Only documentation is required at this point
+- [x]	Set up GitHub environment
+- [ ]	Commit documents: minimum of use case diagram, and user stories, feature backlog
+- [ ]	Each person should commit at least once, to show they are able to access the repository
+- [x] Only documentation is required at this point
 
 #### Rubric for Week 1:
 * User Stories:  10 pts
@@ -25,10 +25,10 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 * Backlog: 3 pts
 
 #### Week 2 – 3: 33%
-* 50% of the backlog features should be complete
-* Documentation should be updated to reflect any changes made during the development cycle
-* Code should compile without errors
-*	Unit tests for implemented features
+- [ ]	50% of the backlog features should be complete
+- [ ]	Documentation should be updated to reflect any changes made during the development cycle
+- [ ]	Code should compile without errors
+- [ ]	Unit tests for implemented features
 
 #### Rubric for Week 2-3:
 *	Documentation: 10 pts
@@ -36,10 +36,10 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 *	Working Code: 8 pts
 
 #### Week 4 – 5: 34%
-*	100% of backlog features should be complete
-*	A minimum of the project description should be implemented
-*	The project should have thorough unit test coverage
-*	All documentation should be up to date, reflecting any changes made during development
+- [ ]	100% of backlog features should be complete
+- [ ]	A minimum of the project description should be implemented
+- [ ]	The project should have thorough unit test coverage
+- [ ]	All documentation should be up to date, reflecting any changes made during development
 
 #### Rubric:
 *	Documentation: 8 pts
