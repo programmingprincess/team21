@@ -1,0 +1,8 @@
+Instructions: 
+Three dice will be used in this game. The goal is to obtain the highest score in 10 rounds. 
+
+1. Each player takes turns rolling the dice. A player's turn is terminated when they roll three 6's or when they choose to hold. Rolling three 6's will render a player's total score to 0. Rolling [    ] will render a player's score during that round to 0. 
+
+2. Rolling three of a kind (other than 6's) will allow player to triple their score for that roll. (For example: rolling three 3's will result in a score of 9 x 3 = 27). If a player rolls three one's, each die will be treated as a value of 6 instead of one. (Rolling three 1's will result in a score of 6 x 3 = 18 x 3 = 54). 
+
+3. The game will terminate when each player has had 10 rounds. The highest score takes the win! 
