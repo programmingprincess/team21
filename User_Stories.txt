@@ -1,0 +1,7 @@
+Team #21
+
+User Stories
+
+1.	As a player, I want to make a username so my score can be associated with it.
+2.	As a player, I want roll dice so that I can increase my score.
+3.	As a player, I want to hold so that I can save my score without risk of losing.
