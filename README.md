@@ -1,5 +1,6 @@
 # Team 21
 Group project for CSE 360: Introduction to Software Engineering.
+
 Trello: https://trello.com/b/byEC0cyO/cse-360-team-21-group-project
 
 ## Project Guidelines - 
