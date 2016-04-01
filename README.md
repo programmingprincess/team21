@@ -1,5 +1,6 @@
 # Team 21
-Group project for CSE 360: Introduction to Software Engineering 
+Group project for CSE 360: Introduction to Software Engineering.
+Trello: https://trello.com/b/byEC0cyO/cse-360-team-21-group-project
 
 ## Project Guidelines - 
 CSE360: Team Project – 100 points, 15% of final grade 
@@ -14,8 +15,8 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 
 #### Week 1:  33%
 - [x]	Set up GitHub environment
-- [ ]	Commit documents: minimum of use case diagram, and user stories, feature backlog
-- [ ]	Each person should commit at least once, to show they are able to access the repository
+- [x]	Commit documents: minimum of use case diagram, and user stories, feature backlog
+- [x]	Each person should commit at least once, to show they are able to access the repository
 - [x] Only documentation is required at this point
 
 #### Rubric for Week 1:
