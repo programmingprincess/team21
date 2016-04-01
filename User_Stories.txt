@@ -5,6 +5,8 @@ User Stories
 1.  As a player, I want to make a username so my score can be associated with it.
 2.  As a player, I want roll dice so that I can increase my score.
 3.  As a player, I want to hold so that I can save my score without risk of losing.
-4.  As a player, I want to view my score so that I can know my standing compared to other players.
-5.  As a player, I want to add more players so that I may compete with my friends.
-6.  As a player, I want to compete with an AI so I can play alone.
+4.  As a player, I want to view my total game score so that I can know my standing compared to other players.
+5.  As a player, I want to view my round score so that I can determine whether to hold or re-roll.
+6.  As a player, I want to add more players so that I may compete with my friends.
+7.  As a player, I want to compete with an AI so I can play alone.
+8.  As a player, I want to view past high scores so that I can compare my performance to prior games.
