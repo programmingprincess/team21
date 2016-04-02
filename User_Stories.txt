@@ -10,3 +10,9 @@ User Stories
 6.  As a player, I want to add more players so that I may compete with my friends.
 7.  As a player, I want to compete with an AI so I can play alone.
 8.  As a player, I want to view past high scores so that I can compare my performance to prior games.
+9.  As a player, I want to access the instructions to learn how to play the game.
+10. As a player, I want a counter to keep track of which round I am on so I know when the game will end.
+11. As a player, I want to see a reference chart so I can see which rolls result in what outcomes.
+12. As a player, I want a menu so I can access the instructions, scoreboard, or restart the current game.
+13. As a player, I want a visualization of three dice so I can see what my rolls are.
+14. As a player, I want buttons to click so I can choose to either roll again or to hold.
