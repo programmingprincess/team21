@@ -14,7 +14,7 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 * Program: Test cases and code.
 * Environment: GitHub Activity
 
-#### Week 1:  33%
+#### Week 1:  25%
 - [x]	Set up GitHub environment
 - [x]	Commit documents: minimum of use case diagram, and user stories, feature backlog
 - [x]	Each person should commit at least once, to show they are able to access the repository
@@ -23,10 +23,10 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 #### Rubric for Week 1:
 * User Stories:  10 pts
 * Use Case Diagram: 10 pts
-* GitHub: 10 pts
+* GitHub: 3 pts
 * Backlog: 3 pts
 
-#### Week 2 – 3: 33%
+#### Week 2 – 3: 37%
 - [ ]	50% of the backlog features should be complete
 - [ ]	Documentation should be updated to reflect any changes made during the development cycle
 - [ ]	Code should compile without errors
@@ -35,17 +35,17 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 #### Rubric for Week 2-3:
 *	Documentation: 10 pts
 *	Unit Tests: 15 pts
-*	Working Code: 8 pts
+*	Working Code: 12 pts
 
-#### Week 4 – 5: 34%
+#### Week 4 – 5: 38%
 - [ ]	100% of backlog features should be complete
 - [ ]	A minimum of the project description should be implemented
 - [ ]	The project should have thorough unit test coverage
 - [ ]	All documentation should be up to date, reflecting any changes made during development
 
 #### Rubric:
-*	Documentation: 8 pts
-*	Unit Tests: 10 pts
+*	Documentation: 10 pts
+*	Unit Tests: 12 pts
 *	Working Code: 16 pts
 
 #### Contest:
