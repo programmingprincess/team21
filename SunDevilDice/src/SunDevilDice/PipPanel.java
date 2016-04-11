@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class PipPanel extends JPanel {
 
-	private int pipRatio = 4; // the ratio of the size of the pip to its
+	private int pipRatio = 2; // the ratio of the size of the pip to its
 								// container
 
 	/**

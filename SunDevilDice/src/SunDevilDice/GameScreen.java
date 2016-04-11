@@ -5,6 +5,8 @@ import net.miginfocom.swing.MigLayout;
 
 public class GameScreen extends JPanel {
 
+	private TurnPanel turnPanel;
+
 	/**
 	 * Create the panel.
 	 */
@@ -23,7 +25,7 @@ public class GameScreen extends JPanel {
 		PlayerSeat playerSeat4 = new PlayerSeat();
 		add(playerSeat4, "cell 0 1,grow");
 
-		TurnPanel turnPanel = new TurnPanel();
+		turnPanel = new TurnPanel();
 		add(turnPanel, "cell 1 1,grow");
 
 		PlayerSeat playerSeat5 = new PlayerSeat();

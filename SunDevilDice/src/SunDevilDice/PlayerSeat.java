@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class PlayerSeat extends JPanel {
 
@@ -17,6 +19,7 @@ public class PlayerSeat extends JPanel {
 	 * Create the panel.
 	 */
 	public PlayerSeat() {
+		setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		setLayout(new MigLayout("", "[grow]", "[grow][grow][grow]"));
 
 		JPanel panel = new JPanel();
