@@ -1,6 +1,7 @@
 package SunDevilDice;
 
 import javax.swing.*;
+import java.awt.*;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -42,7 +43,8 @@ public class SetupScreen extends JPanel {
 		add(panel, "cell 1 0 1 3,grow");
 		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
 		
-		JTextField playerName = new JTextField(15);
+		JTextField playerName = new JTextField();
+		playerName.setPreferredSize(new Dimension(200,38));
 		panel.add(playerName, "cell 0 0 3 1,growx,aligny center");
 		
 		addPlayerButton = new JButton("Add Player");
