@@ -82,11 +82,11 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tempName = playerName.getText().replace(" ", "");
+				String tempName = playerNameField.getText().replace(" ", "");
 				if(!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < 8) {
 					playerList.addElement(tempName);
 					list.updateUI();
-					playerName.setText("");
+					playerNameField.setText("");
 				} 
 			}
 		});
