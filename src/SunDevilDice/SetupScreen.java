@@ -15,7 +15,7 @@ public class SetupScreen extends JPanel {
 	public JButton addAiButton;
 	public JButton hiScoreButton;
 	public JButton startButton;
-	public JList list;
+	public JList<String> list;
 	public Vector<String> playerList;
 
 	/**
@@ -34,7 +34,7 @@ public class SetupScreen extends JPanel {
 		panel_4.add(playerListLabel, "cell 0 0,alignx center,aligny center");
 
 		playerList = new Vector<String>();
-		list = new JList(playerList);
+		list = new JList<String>(playerList);
 		panel_4.add(list, "cell 0 1,grow");
 
 		JPanel panel = new JPanel();
@@ -76,12 +76,12 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (!playerName.getText().equals("") && !playerList.contains(playerName.getText())
+				if (!playerName.getText().trim().equals(" ") && !playerName.getText().trim().equals("") && !playerList.contains(playerName.getText().trim())
 						&& playerList.size() < 8) {
-					playerList.addElement(playerName.getText());
-					list.updateUI();
-					playerName.setText("");
-				}
+						playerList.addElement(playerName.getText());
+						list.updateUI();
+						playerName.setText("");
+						}
 			}
 		});
 	}
