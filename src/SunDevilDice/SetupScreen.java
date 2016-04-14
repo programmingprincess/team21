@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-
-
 public class SetupScreen extends JPanel {
 
 	public JButton addPlayerButton;
@@ -41,12 +39,12 @@ public class SetupScreen extends JPanel {
 
 		JPanel panel = new JPanel();
 		add(panel, "cell 1 0 1 3,grow");
-		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
-		
+		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
+
 		JTextField playerName = new JTextField();
-		playerName.setPreferredSize(new Dimension(200,38));
+		playerName.setPreferredSize(new Dimension(200, 38));
 		panel.add(playerName, "cell 0 0 3 1,growx,aligny center");
-		
+
 		addPlayerButton = new JButton("Add Player");
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(addPlayerButton, "cell 0 0 3 1,growx,aligny center");
@@ -63,6 +61,10 @@ public class SetupScreen extends JPanel {
 		startButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(startButton, "cell 0 3 3 1,growx,aligny center");
 
+		JButton instructionsButton = new JButton("Instructions");
+		instructionsButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
+		panel.add(instructionsButton, "cell 1 4,grow");
+
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 0,grow");
 
@@ -74,7 +76,8 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!playerName.getText().equals("") && !playerList.contains(playerName.getText()) && playerList.size() < 8) {
+				if (!playerName.getText().equals("") && !playerList.contains(playerName.getText())
+						&& playerList.size() < 8) {
 					playerList.addElement(playerName.getText());
 					list.updateUI();
 					playerName.setText("");
