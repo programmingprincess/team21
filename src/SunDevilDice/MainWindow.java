@@ -62,12 +62,13 @@ public class MainWindow {
 				mainPanel.add(gameScreen, "name_10775296814969");
 				CardLayout cards = (CardLayout) (mainPanel.getLayout());
 				cards.next(mainPanel);
+
 			}
 		});
-		
+
 		setupScreen.addAiButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 	}
