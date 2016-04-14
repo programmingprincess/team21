@@ -35,7 +35,7 @@ public class SetupScreen extends JPanel {
 		playerListLabel.setFont(new Font("Narkisim", Font.PLAIN, 16));
 		panel_4.add(playerListLabel, "cell 0 0,alignx center,aligny center");
 
-		playerList = new Vector();
+		playerList = new Vector<String>();
 		list = new JList(playerList);
 		panel_4.add(list, "cell 0 1,grow");
 

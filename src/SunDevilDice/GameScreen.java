@@ -12,7 +12,10 @@ public class GameScreen extends JPanel {
 	 * Create the panel.
 	 */
 	public GameScreen(Vector<String> playerList) {
+		
 		setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
+		turnPanel = new TurnPanel();
+		add(turnPanel, "cell 1 1,grow");
 		
 		if(playerList.size() > 0) {
 			PlayerSeat playerSeat1 = new PlayerSeat(playerList.get(0));
@@ -34,9 +37,7 @@ public class GameScreen extends JPanel {
 			add(playerSeat4, "cell 1 2,grow");
 		}
 
-		turnPanel = new TurnPanel();
-		add(turnPanel, "cell 1 1,grow");
-		
+
 		if(playerList.size() > 4) {
 			PlayerSeat playerSeat5 = new PlayerSeat(playerList.get(4));
 			add(playerSeat5, "cell 0 0,grow");
