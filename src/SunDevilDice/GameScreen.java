@@ -1,12 +1,13 @@
 package SunDevilDice;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.util.*;
 import net.miginfocom.swing.MigLayout;
 
 public class GameScreen extends JPanel {
 
 	private TurnPanel turnPanel;
+	private JButton menu;
 
 	/**
 	 * Create the panel.

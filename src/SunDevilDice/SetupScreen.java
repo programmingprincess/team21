@@ -14,11 +14,13 @@ import java.util.*;
 public class SetupScreen extends JPanel {
 
 	public JButton addPlayerButton;
+	public JButton deletePlayerButton;
 	public JButton addAiButton;
 	public JButton hiScoreButton;
 	public JButton startButton;
 	public JList list;
 	public Vector<String> playerList;
+	public int AICount = 0;
 
 	/**
 	 * Create the panel.
@@ -50,18 +52,22 @@ public class SetupScreen extends JPanel {
 		addPlayerButton = new JButton("Add Player");
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(addPlayerButton, "cell 0 0 3 1,growx,aligny center");
-
+		
+		deletePlayerButton = new JButton("Delete Player");
+		deletePlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
+		panel.add(deletePlayerButton, "cell 0 1 3 1,growx,aligny center");
+		
 		addAiButton = new JButton("Add AI");
 		addAiButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel.add(addAiButton, "cell 0 1 3 1,growx,aligny center");
+		panel.add(addAiButton, "cell 0 2 3 1,growx,aligny center");
 
 		hiScoreButton = new JButton("View High Scores");
 		hiScoreButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel.add(hiScoreButton, "cell 0 2 3 1,growx,aligny center");
+		panel.add(hiScoreButton, "cell 0 3 3 1,growx,aligny center");
 
 		startButton = new JButton("Start Game");
 		startButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel.add(startButton, "cell 0 3 3 1,growx,aligny center");
+		panel.add(startButton, "cell 0 4 3 1,growx,aligny center");
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 0,grow");
@@ -74,11 +80,30 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!playerName.getText().equals("") && !playerList.contains(playerName.getText()) && playerList.size() < 8) {
-					playerList.addElement(playerName.getText());
+				String tempName = playerName.getText().replace(" ", "");
+				if(!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < 8) {
+					playerList.addElement(tempName);
 					list.updateUI();
 					playerName.setText("");
+				} 
+			}
+		});
+		
+		addAiButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(playerList.size() < 8) {
+					AICount++;
+					playerList.addElement("Computer " + AICount);
+					list.updateUI();
 				}
+			
+			}
+		});
+		
+		deletePlayerButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				playerList.remove(list.getSelectedIndex());
+				list.updateUI();
 			}
 		});
 	}
