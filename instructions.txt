@@ -1,5 +1,6 @@
 Build Instructions:
 Build the classes in the DiceGame package.
+Import miglayout15-swing.jar — build path > add external JARs 
 
 Play Instructions: 
 Three dice will be used in this game. The goal is to obtain the highest score in 10 rounds or be the first to reach a certain score threshold. 

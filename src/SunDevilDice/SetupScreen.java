@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 
-
-
 public class SetupScreen extends JPanel {
 
 	public JButton addPlayerButton;
@@ -18,7 +16,7 @@ public class SetupScreen extends JPanel {
 	public JButton addAiButton;
 	public JButton hiScoreButton;
 	public JButton startButton;
-	public JList list;
+	public JList<String> list;
 	public Vector<String> playerList;
 	public int AICount = 0;
 
@@ -37,18 +35,18 @@ public class SetupScreen extends JPanel {
 		playerListLabel.setFont(new Font("Narkisim", Font.PLAIN, 16));
 		panel_4.add(playerListLabel, "cell 0 0,alignx center,aligny center");
 
-		playerList = new Vector();
-		list = new JList(playerList);
+		playerList = new Vector<String>();
+		list = new JList<String>(playerList);
 		panel_4.add(list, "cell 0 1,grow");
 
 		JPanel panel = new JPanel();
 		add(panel, "cell 1 0 1 3,grow");
-		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow]"));
-		
-		JTextField playerName = new JTextField();
-		playerName.setPreferredSize(new Dimension(200,38));
-		panel.add(playerName, "cell 0 0 3 1,growx,aligny center");
-		
+		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
+
+		JTextField playerNameField = new JTextField();
+		playerNameField.setPreferredSize(new Dimension(200, 38));
+		panel.add(playerNameField, "cell 0 0 3 1,growx,aligny center");
+
 		addPlayerButton = new JButton("Add Player");
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(addPlayerButton, "cell 0 0 3 1,growx,aligny center");
@@ -68,6 +66,10 @@ public class SetupScreen extends JPanel {
 		startButton = new JButton("Start Game");
 		startButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(startButton, "cell 0 4 3 1,growx,aligny center");
+
+		JButton instructionsButton = new JButton("Instructions");
+		instructionsButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
+		panel.add(instructionsButton, "cell 1 4,grow");
 
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 0,grow");
