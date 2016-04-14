@@ -17,6 +17,7 @@ public class SetupScreen extends JPanel {
 	public JButton startButton;
 	public JList<String> list;
 	public Vector<String> playerList;
+	private String playerName;
 
 	/**
 	 * Create the panel.
@@ -41,9 +42,9 @@ public class SetupScreen extends JPanel {
 		add(panel, "cell 1 0 1 3,grow");
 		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
 
-		JTextField playerName = new JTextField();
-		playerName.setPreferredSize(new Dimension(200, 38));
-		panel.add(playerName, "cell 0 0 3 1,growx,aligny center");
+		JTextField playerNameField = new JTextField();
+		playerNameField.setPreferredSize(new Dimension(200, 38));
+		panel.add(playerNameField, "cell 0 0 3 1,growx,aligny center");
 
 		addPlayerButton = new JButton("Add Player");
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
@@ -76,11 +77,12 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (!playerName.getText().trim().equals(" ") && !playerName.getText().trim().equals("") && !playerList.contains(playerName.getText().trim())
+				playerName = playerNameField.getText().trim();
+				if (!playerName.equals(" ") && !playerName.equals("") && !playerList.contains(playerName)
 						&& playerList.size() < 8) {
-						playerList.addElement(playerName.getText());
+						playerList.addElement(playerName);
 						list.updateUI();
-						playerName.setText("");
+						playerNameField.setText("");
 						}
 			}
 		});
