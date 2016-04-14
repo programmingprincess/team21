@@ -17,7 +17,7 @@ public class SetupScreen extends JPanel {
 	public JButton addAiButton;
 	public JButton hiScoreButton;
 	public JButton startButton;
-	public JList list;
+	public JList<String> list;
 	public Vector<String> playerList;
 
 	/**
@@ -36,7 +36,7 @@ public class SetupScreen extends JPanel {
 		panel_4.add(playerListLabel, "cell 0 0,alignx center,aligny center");
 
 		playerList = new Vector<String>();
-		list = new JList(playerList);
+		list = new JList<String>(playerList);
 		panel_4.add(list, "cell 0 1,grow");
 
 		JPanel panel = new JPanel();
