@@ -13,6 +13,7 @@ public class Die implements DieInterface {
 	 * constructs a Die object
 	 */
 	public Die(){
+		face = -1; // initialize face outside of dice range
 		randomNumberGenerator = new Random();
 	}
 	

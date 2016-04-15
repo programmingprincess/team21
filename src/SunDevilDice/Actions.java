@@ -9,7 +9,7 @@ public class Actions implements GameInterface {
 	private int roundScore;		// the score for the current round
 	private int turnNumber;		// the turn number corresponding to the index of a player
 	private Vector<String> playerList;	// a list of player in the current game
-	public static final int scoreThreshold = 200;	// the score threshold needed to win the game
+	public static final int SCORE_THRESHOLD = 200;	// the score threshold needed to win the game
 	
 	/**
 	 * Constructs an actions object
@@ -58,14 +58,6 @@ public class Actions implements GameInterface {
 	}
 	
 	/**
-	 * adds the value to the current round score
-	 * @param scoreToAdd the value to be added
-	 */
-	public void increaseRoundScore(int scoreToAdd){
-		roundScore += scoreToAdd;
-	}
-	
-	/**
 	 * returns the player whose turn is next and prepares the game for the next turn.
 	 * @return the name of player whose turn is next
 	 */
@@ -103,7 +95,7 @@ public class Actions implements GameInterface {
 	 *  creates a string representation of scores
 	 * @return a string representation of scores
 	 */
-	public String getScoresString(){
+	private String getScoresString(){
 		String scores = "<html>";
 		
 		for(int playerIndex = 0; playerIndex < playerList.size(); playerIndex++){
