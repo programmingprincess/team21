@@ -16,6 +16,7 @@ public class SetupScreen extends JPanel {
 	public JButton addAiButton;
 	public JButton hiScoreButton;
 	public JButton startButton;
+	public JTextField playerNameField;
 	public JList<String> list;
 	public Vector<String> playerList;
 	public int AICount = 0;
@@ -43,7 +44,7 @@ public class SetupScreen extends JPanel {
 		add(panel, "cell 1 0 1 3,grow");
 		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
 
-		JTextField playerNameField = new JTextField();		//add field for user to enter name
+		playerNameField = new JTextField();		//add field for user to enter name
 		playerNameField.setPreferredSize(new Dimension(200, 38));
 		panel.add(playerNameField, "cell 0 0 3 1,growx,aligny center");
 
