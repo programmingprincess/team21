@@ -100,6 +100,7 @@ public class SunDevilDiceTest {
 		assertEquals("player3", player3);
 		assertEquals(player1, testGame.nextTurn());
 	}	
+	
 	// test that scores are updated on hold
 	@Test
 	public void testHold(){
@@ -121,11 +122,7 @@ public class SunDevilDiceTest {
 		assertEquals(66, testGame.getTotalScore("player3"));
 	}
 	
-	@Test
-	public void highScore() {
-		fail("Not yet implemented");
-	}
-	
+	//test add player button functionality
 	@Test
 	public void addPlayer() {
 		SetupScreen setup = new SetupScreen();
@@ -135,6 +132,7 @@ public class SunDevilDiceTest {
 		assertEquals(setup.playerList.get(0), "derpjqi");
 	}
 	
+	//test add AI button functionality
 	@Test
 	public void addAI() {
 		SetupScreen setup = new SetupScreen();
@@ -143,6 +141,7 @@ public class SunDevilDiceTest {
 		assertEquals(setup.playerList.get(0), "Computer 1");
 	}
 	
+	//test delete player functionality
 	@Test
 	public void deletePlayer() {
 		SetupScreen setup = new SetupScreen();
