@@ -12,7 +12,7 @@ public class GameScreen extends JPanel {
 	private TurnPanel turnPanel;
 	private JButton menu;
 	private HashMap<String, PlayerSeat> seatDictionary = new HashMap<String, PlayerSeat>();
-	String currentSeat;
+	private String currentSeat;
 	/**
 	 * Create the panel.
 	 */

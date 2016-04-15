@@ -82,7 +82,7 @@ public class SetupScreen extends JPanel {
 
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String tempName = playerNameField.getText().replace(" ", "");
+				String tempName = playerNameField.getText().trim();
 				if(!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < 8) {
 					playerList.addElement(tempName);
 					list.updateUI();
@@ -98,14 +98,17 @@ public class SetupScreen extends JPanel {
 					playerList.addElement("Computer " + AICount);
 					list.updateUI();
 				}
-			
+			//Needs to be completed
 			}
 		});
 		
 		deletePlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				playerList.remove(list.getSelectedIndex());
-				list.updateUI();
+				 int selectedIndex = list.getSelectedIndex();
+				 if(selectedIndex >= 0 && !playerList.isEmpty() && selectedIndex < playerList.size()){ //Remove only if a particular item is selected				 
+					 playerList.remove(selectedIndex);
+					 list.updateUI();
+				 }
 			}
 		});
 	}

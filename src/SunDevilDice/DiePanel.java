@@ -54,15 +54,15 @@ public class DiePanel extends JPanel {
 		add(pipPanel22, "cell 2 2,grow");
 
 		// initially set each pip to not be visible
-		pipPanel00.setVisible(false);
+		pipPanel00.setVisible(true);
 		pipPanel01.setVisible(false);
-		pipPanel02.setVisible(false);
-		pipPanel10.setVisible(false);
+		pipPanel02.setVisible(true);
+		pipPanel10.setVisible(true);
 		pipPanel11.setVisible(false);
-		pipPanel12.setVisible(false);
-		pipPanel20.setVisible(false);
+		pipPanel12.setVisible(true);
+		pipPanel20.setVisible(true);
 		pipPanel21.setVisible(false);
-		pipPanel22.setVisible(false);
+		pipPanel22.setVisible(true);
 	}
 
 	public void reshape(int x, int y, int width, int height) {

@@ -1,6 +1,5 @@
 package SunDevilDice;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -67,7 +66,7 @@ public class Actions implements GameInterface {
 	
 	// creates a string representation of scores
 	public String getScoresString(){
-		String scores = "<html>"; //"<html>Hello World!<br>blahblahblah</html>"
+		String scores = "<html>";
 		
 		for(int playerIndex = 0; playerIndex < playerList.size(); playerIndex++){
 			scores += extractMax();
