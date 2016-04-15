@@ -142,12 +142,22 @@ public class TurnPanel extends JPanel {
 		});
 	}
 
+	/**
+	 * updates the dice display to show the new values
+	 * @param value1 the first die value
+	 * @param value2 the 2nd die value
+	 * @param value3 the 3rd die value
+	 */
 	public void showRoll(int value1, int value2, int value3) {
 		diePanel1.showValue(value1);
 		diePanel2.showValue(value2);
 		diePanel3.showValue(value3);
 	}
 	
+	/**
+	 * ends the game and transitions to the game over screen
+	 * @param results the final results of the game
+	 */
 	public void endGame(String results){
 		JPanel grandparent = (JPanel) this.getParent().getParent();
 
@@ -157,14 +167,27 @@ public class TurnPanel extends JPanel {
 		cards.next(grandparent);
 	}
 	
+	/**
+	 * updates the text of the turn label with a new player
+	 * @param newPlayer the new label text
+	 */
 	private void updateTurnLabel(String newPlayer){
 		turnLabel.setText("Turn: " + newPlayer);
 	}
 	
+	/**
+	 * updates the round score label with the new value
+	 * @param score the new text of the round score label
+	 */
 	private void updateRoundScoreLabel(int score){
 		roundScoreLabel.setText("Round Score: " + score);
 	}
 
+	
+	/**
+	 * updates the UI to reflect a change in turn
+	 * @param player the new player whose turn should be reflected
+	 */
 	private void setCurrentPlayer(String player){
 		((GameScreen) this.getParent()).updatePlayerScore(this.currentPlayer, currentGame.getTotalScore(this.currentPlayer));
         this.currentPlayer = player;

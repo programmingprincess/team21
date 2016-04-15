@@ -79,6 +79,7 @@ public class GameOverPanel extends JPanel {
 		});
 	}
 
+	// returns the parent of this panel
 	private JPanel getMainPanel() {
 		JPanel parent = (JPanel) this.getParent();
 		return parent;

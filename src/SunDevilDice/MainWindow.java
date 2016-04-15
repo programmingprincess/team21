@@ -14,7 +14,7 @@ public class MainWindow {
 
 	private JFrame frmSunDevilDice;
 	private JPanel mainPanel;
-	GameScreen gameScreen;
+	private GameScreen gameScreen;
 
 	/**
 	 * Launch the application.
@@ -58,15 +58,19 @@ public class MainWindow {
 		mainPanel.add(setupScreen, "setup");
 
 		setupScreen.startButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				gameScreen = new GameScreen(setupScreen.playerList);
-				mainPanel.add(gameScreen, "game");
-				CardLayout cards = (CardLayout) (mainPanel.getLayout());
-				cards.show(mainPanel, "game");
+			// handles start button clicks
+			public void actionPerformed(ActionEvent event) {
+				if (setupScreen.playerList.size() > 0) {
+					gameScreen = new GameScreen(setupScreen.playerList);
+					mainPanel.add(gameScreen, "game");
+					CardLayout cards = (CardLayout) (mainPanel.getLayout());
+					cards.show(mainPanel, "game");
+				}
 			}
 		});
 
 		setupScreen.addAiButton.addActionListener(new ActionListener() {
+			// handles add AI button clicks
 			public void actionPerformed(ActionEvent e) {
 
 			}

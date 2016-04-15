@@ -18,6 +18,9 @@ public class PipPanel extends JPanel {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	protected void paintComponent(Graphics graphicsObject) {
 		int panelHeight = getHeight();
 		int panelWidth = getWidth();
@@ -25,6 +28,8 @@ public class PipPanel extends JPanel {
 		super.paintComponent(graphicsObject);
 
 		graphicsObject.setColor(Color.BLACK);
+		
+		// paint a dot at the center of the panel
 		graphicsObject.fillOval(panelWidth / 2 - (panelWidth / pipRatio) / 2,
 				panelHeight / 2 - (panelHeight / pipRatio) / 2, panelWidth / pipRatio, panelHeight / pipRatio);
 	}

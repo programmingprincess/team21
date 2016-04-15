@@ -65,6 +65,9 @@ public class DiePanel extends JPanel {
 		pipPanel22.setVisible(true);
 	}
 
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#reshape(int, int, int, int)
+	 */
 	public void reshape(int x, int y, int width, int height) {
 		// maintain square dimensions
 		if (width < height) {
@@ -76,6 +79,10 @@ public class DiePanel extends JPanel {
 		super.reshape(x, y, width, height);
 	}
 
+	/**
+	 * shows the given value on the face of the die panel
+	 * @param value the value to display
+	 */
 	public void showValue(int value) {
 		switch (value) {
 		case 1:

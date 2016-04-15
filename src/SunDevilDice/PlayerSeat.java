@@ -45,11 +45,19 @@ public class PlayerSeat extends JPanel {
 
 	}
 
+	/**
+	 * updates the player name label
+	 * @param newPlayerName the player name to update
+	 */
 	public void setPlayerName(String newPlayerName) {
 		playerName = newPlayerName;
 		nameLabel.setText(playerName);
 	}
 
+	/**
+	 * sets the score label text of the seat to the new score
+	 * @param score the updated score
+	 */
 	public void setScore(int score) {
 		scoreLabel.setText("Score: " + score);
 	}

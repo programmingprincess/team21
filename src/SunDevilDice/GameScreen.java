@@ -11,7 +11,7 @@ public class GameScreen extends JPanel {
 
 	private TurnPanel turnPanel;
 	private JButton menu;
-	private HashMap<String, PlayerSeat> seatDictionary = new HashMap<String, PlayerSeat>();
+	private HashMap<String, PlayerSeat> seatDictionary = new HashMap<String, PlayerSeat>(); // a map of player names to their respective PlayerSeat
 	private String currentSeat;
 	/**
 	 * Create the panel.
@@ -77,10 +77,19 @@ public class GameScreen extends JPanel {
 	}
 	
 
+	/**
+	 * updates the UI with the current score for the given player
+	 * @param player the player whose score is to be updated
+	 * @param newScore the value of the updated score
+	 */
 	public void updatePlayerScore(String player, int newScore){
 		seatDictionary.get(currentSeat).setScore(newScore);
 	}
 	
+	/**
+	 * Highlights the border of the given player and rests the border of the current player, then updates current player
+	 * @param player the player whose seat border is to be updated
+	 */
 	public void updatePlayerBorder(String player){
 		seatDictionary.get(currentSeat).setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
 		seatDictionary.get(player).setBorder(new LineBorder(Color.RED, 4, true));
