@@ -3,6 +3,7 @@ package SunDevilDice;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -89,12 +90,15 @@ public class TurnPanel extends JPanel {
 				die3.roll();
 
                 int sum = die1.getFace() + die2.getFace() + die3.getFace();
-
+                String terribleRoll = "Ouch. 6 6 6. You just lost all your points.\nNow it's ";
+                String badRoll = "Sorry! You rolled unfavorably and lost your turn.\nNow it's ";
+                
                 if (sum == 10 || sum == 11)
                 {
                 	setCurrentPlayer(currentGame.nextTurn());
                     updateTurnLabel(currentPlayer);
                     updateRoundScoreLabel(0);
+                    JOptionPane.showMessageDialog(null, badRoll + currentPlayer + "'s turn." );// pop up showing next turn
                 }
                 else if (sum == 18)
                 {
@@ -102,6 +106,7 @@ public class TurnPanel extends JPanel {
                     setCurrentPlayer(currentGame.nextTurn());
                     updateTurnLabel(currentPlayer);
                     updateRoundScoreLabel(0);
+                    JOptionPane.showMessageDialog(null, terribleRoll + currentPlayer + "'s turn." );// pop up showing next turn
                 }
                 else if (sum == 3)
                 {
@@ -125,6 +130,7 @@ public class TurnPanel extends JPanel {
 		
 		holdButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String hold = "Hold!\nNow it's ";
 				// check win condition
 				int total = currentGame.getTotalScore(currentPlayer) + currentGame.getRoundScore();
 				if(total > Actions.scoreThreshold){
@@ -136,6 +142,7 @@ public class TurnPanel extends JPanel {
 					setCurrentPlayer(currentGame.hold());
                 	updateTurnLabel(currentPlayer);
                 	updateRoundScoreLabel(0);
+                	JOptionPane.showMessageDialog(null, hold + currentPlayer + "'s turn." );// pop up showing next turn
                 }
 			}
 			
