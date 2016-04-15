@@ -23,6 +23,8 @@ public class GameScreen extends JPanel {
 		turnPanel = new TurnPanel(playerList);
 		add(turnPanel, "cell 1 1,grow");
 		
+		
+		//Style the game screen based on how many players there are 
 		if(playerList.size() > 0) {
 			PlayerSeat playerSeat1 = new PlayerSeat(playerList.get(0));
 			add(playerSeat1, "cell 0 1,grow");
@@ -76,7 +78,6 @@ public class GameScreen extends JPanel {
 		}
 	}
 	
-
 	/**
 	 * updates the UI with the current score for the given player
 	 * @param player the player whose score is to be updated
