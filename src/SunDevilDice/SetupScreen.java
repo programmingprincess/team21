@@ -19,7 +19,7 @@ public class SetupScreen extends JPanel {
 	public JList<String> list;
 	public Vector<String> playerList;
 	public int AICount = 0;
-
+	private int maxPlayerCount = 8;
 	/**
 	 * Create the panel.
 	 */
@@ -83,11 +83,17 @@ public class SetupScreen extends JPanel {
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String tempName = playerNameField.getText().trim();
-				if(!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < 8) {
+				if(!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < maxPlayerCount) {
 					playerList.addElement(tempName);
 					list.updateUI();
 					playerNameField.setText("");
-				} 
+				}
+				else if(playerList.contains(tempName))
+					JOptionPane.showMessageDialog(null, "That user name already exists.");// pop up alert for duplicate name
+				else if(playerList.size() >= maxPlayerCount)
+					JOptionPane.showMessageDialog(null, "Lobby is full. No more players can be added.");// pop up for too many players
+				else
+					JOptionPane.showMessageDialog(null, "Invalid user name."); // for entering empy names
 			}
 		});
 		
@@ -109,6 +115,8 @@ public class SetupScreen extends JPanel {
 					 playerList.remove(selectedIndex);
 					 list.updateUI();
 				 }
+				 else 
+					 JOptionPane.showMessageDialog(null, "Please select a player to be removed.");// pop up alert for user
 			}
 		});
 	}

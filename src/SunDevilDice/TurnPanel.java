@@ -20,7 +20,7 @@ public class TurnPanel extends JPanel {
 	JLabel turnLabel; 
 	JLabel roundScoreLabel;
 	
-	Die die1; // the 3 dice
+	Die die1; //the 3 dice
 	Die die2;
 	Die die3;
 	
