@@ -98,6 +98,7 @@ public class TurnPanel extends JPanel {
                 	setCurrentPlayer(currentGame.nextTurn());
                     updateTurnLabel(currentPlayer);
                     updateRoundScoreLabel(0);
+                    showRoll(die1.getFace(), die2.getFace(), die3.getFace());
                     JOptionPane.showMessageDialog(null, badRoll + currentPlayer + "'s turn." );// pop up showing next turn
                 }
                 else if (sum == 18)
@@ -106,6 +107,7 @@ public class TurnPanel extends JPanel {
                     setCurrentPlayer(currentGame.nextTurn());
                     updateTurnLabel(currentPlayer);
                     updateRoundScoreLabel(0);
+                    showRoll(die1.getFace(), die2.getFace(), die3.getFace());
                     JOptionPane.showMessageDialog(null, terribleRoll + currentPlayer + "'s turn." );// pop up showing next turn
                 }
                 else if (sum == 3)
