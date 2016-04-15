@@ -96,14 +96,15 @@ public class Actions implements GameInterface {
 	 * @return a string representation of scores
 	 */
 	private String getScoresString(){
-		String scores = "<html>";
+		String scores = "<html><table>";		//return scores in the form of a table
 		
 		for(int playerIndex = 0; playerIndex < playerList.size(); playerIndex++){
+			scores += "<tr>";
 			scores += extractMax();
-			scores += "<br>";
+			scores += "</tr>";
 		}
 		
-		scores += "</html>";
+		scores += "</table></html>";
 		return scores;
 	}
 	
@@ -131,9 +132,8 @@ public class Actions implements GameInterface {
 				maxPlayer = playerName;
 			}
 		}
-		
 		scoreDictionary.remove(maxPlayer);
-		return maxPlayer + "------------" + max;
+		return "<td>" + maxPlayer + "</td><td>" + max + "</td>";
 	}
 
 	/**

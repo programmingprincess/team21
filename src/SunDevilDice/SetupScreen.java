@@ -39,15 +39,15 @@ public class SetupScreen extends JPanel {
 		list = new JList<String>(playerList);
 		panel_4.add(list, "cell 0 1,grow");
 
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel();		//add panel 
 		add(panel, "cell 1 0 1 3,grow");
 		panel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
 
-		JTextField playerNameField = new JTextField();
+		JTextField playerNameField = new JTextField();		//add field for user to enter name
 		playerNameField.setPreferredSize(new Dimension(200, 38));
 		panel.add(playerNameField, "cell 0 0 3 1,growx,aligny center");
 
-		addPlayerButton = new JButton("Add Player");
+		addPlayerButton = new JButton("Add Player");		//add action buttons
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel.add(addPlayerButton, "cell 0 0 3 1,growx,aligny center");
 		
@@ -69,8 +69,8 @@ public class SetupScreen extends JPanel {
 
 		JButton instructionsButton = new JButton("Instructions");
 		instructionsButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel.add(instructionsButton, "cell 1 4,grow");
-
+		panel.add(instructionsButton, "cell 0 3 1 4,grow");
+		
 		JPanel panel_1 = new JPanel();
 		add(panel_1, "cell 2 0,grow");
 
@@ -80,6 +80,7 @@ public class SetupScreen extends JPanel {
 		JPanel panel_3 = new JPanel();
 		add(panel_3, "cell 0 2,grow");
 
+		//Add JTextField text to the list; make a new player seat on game screen
 		addPlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String tempName = playerNameField.getText().trim();
@@ -88,6 +89,7 @@ public class SetupScreen extends JPanel {
 					list.updateUI();
 					playerNameField.setText("");
 				}
+				//Error handling 
 				else if(playerList.contains(tempName))
 					JOptionPane.showMessageDialog(null, "That user name already exists.");// pop up alert for duplicate name
 				else if(playerList.size() >= maxPlayerCount)
@@ -97,6 +99,7 @@ public class SetupScreen extends JPanel {
 			}
 		});
 		
+		//Create a "Computer" player when pressed 
 		addAiButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(playerList.size() < 8) {
@@ -108,6 +111,7 @@ public class SetupScreen extends JPanel {
 			}
 		});
 		
+		//Remove selected player from the list 
 		deletePlayerButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 int selectedIndex = list.getSelectedIndex();
