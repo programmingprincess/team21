@@ -91,7 +91,7 @@ public class TurnPanel extends JPanel {
 
                 int sum = die1.getFace() + die2.getFace() + die3.getFace();
                 String terribleRoll = "Ouch. 6 6 6. You just lost all your points.\nNow it's ";
-                String badRoll = "Sorry! You rolled unfavorably and lost your turn.\nNow it's ";
+                String badRoll = "Sorry! You rolled a " + sum + " and lost your turn.\nNow it's ";
                 
                 if (sum == 10 || sum == 11)
                 {
