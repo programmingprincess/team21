@@ -103,11 +103,13 @@ public class SetupScreen extends JPanel {
 		//Create a "Computer" player when pressed 
 		addAiButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(playerList.size() < 8) {
+				if(playerList.size() < maxPlayerCount) {
 					AICount++;
 					playerList.addElement("Computer " + AICount);
 					list.updateUI();
 				}
+				else
+					JOptionPane.showMessageDialog(null, "Lobby is full. No more Computer players can be added.");// pop up alert for user
 			//Needs to be completed
 			}
 		});

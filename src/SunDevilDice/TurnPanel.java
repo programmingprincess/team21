@@ -136,7 +136,7 @@ public class TurnPanel extends JPanel {
 				String hold = "Hold!\nNow it's ";
 				// check win condition
 				int total = currentGame.getTotalScore(currentPlayer) + currentGame.getRoundScore();
-				if(total > Actions.SCORE_THRESHOLD){
+				if(total >= Actions.SCORE_THRESHOLD){
 					// go to win screen
 					String results = currentGame.getWinner();
 					endGame(results);
