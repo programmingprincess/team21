@@ -84,7 +84,7 @@ public class TurnPanel extends JPanel {
 		add(diePanel3, "cell 2 3,grow");
 
 		rollButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 				
 				die1.roll();
 				die2.roll();
@@ -132,10 +132,11 @@ public class TurnPanel extends JPanel {
 		});
 		
 		holdButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 				String hold = "Hold!\nNow it's ";
 				// check win condition
 				int total = currentGame.getTotalScore(currentPlayer) + currentGame.getRoundScore();
+				
 				if(total >= Actions.SCORE_THRESHOLD){
 					// go to win screen
 					String results = currentGame.getWinner();

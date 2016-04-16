@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class GameOverPanel extends JPanel {
-	
+
 	// made public for testing purposes
 	public JButton newGameButton;
 	public JButton exitButton;
@@ -68,7 +68,7 @@ public class GameOverPanel extends JPanel {
 		add(panel_3, "cell 3 0,grow");
 
 		newGameButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 				JPanel parent = getMainPanel();
 				cards = (CardLayout) (parent.getLayout());
 				cards.first(parent);
@@ -76,7 +76,7 @@ public class GameOverPanel extends JPanel {
 		});
 
 		exitButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 				JPanel parent = getMainPanel();
 				cards = (CardLayout) (parent.getLayout());
 				cards.first(parent);

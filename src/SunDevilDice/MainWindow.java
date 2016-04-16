@@ -71,7 +71,7 @@ public class MainWindow {
 
 		setupScreen.addAiButton.addActionListener(new ActionListener() {
 			// handles add AI button clicks
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent event) {
 
 			}
 		});
