@@ -20,6 +20,7 @@ public class TurnPanel extends JPanel {
 	private DiePanel diePanel3;
 	JLabel turnLabel; 
 	JLabel roundScoreLabel;
+	CardLayout cards;
 	
 	Die die1; //the 3 dice
 	Die die2;
@@ -172,7 +173,7 @@ public class TurnPanel extends JPanel {
 
 		GameOverPanel endPanel = new GameOverPanel(results, currentPlayer);
 		grandparent.add(endPanel);
-		CardLayout cards = (CardLayout) (grandparent.getLayout());
+		cards = (CardLayout) (grandparent.getLayout());
 		cards.next(grandparent);
 	}
 	
@@ -180,7 +181,7 @@ public class TurnPanel extends JPanel {
 	 * updates the text of the turn label with a new player
 	 * @param newPlayer the new label text
 	 */
-	private void updateTurnLabel(String newPlayer){
+	public void updateTurnLabel(String newPlayer){
 		turnLabel.setText("Turn: " + newPlayer);
 	}
 	
@@ -188,7 +189,7 @@ public class TurnPanel extends JPanel {
 	 * updates the round score label with the new value
 	 * @param score the new text of the round score label
 	 */
-	private void updateRoundScoreLabel(int score){
+	public void updateRoundScoreLabel(int score){
 		roundScoreLabel.setText("Round Score: " + score);
 	}
 
@@ -197,7 +198,7 @@ public class TurnPanel extends JPanel {
 	 * updates the UI to reflect a change in turn
 	 * @param player the new player whose turn should be reflected
 	 */
-	private void setCurrentPlayer(String player){
+	public void setCurrentPlayer(String player){
 		((GameScreen) this.getParent()).updatePlayerScore(this.currentPlayer, currentGame.getTotalScore(this.currentPlayer));
         this.currentPlayer = player;
         ((GameScreen) this.getParent()).updatePlayerBorder(player);

@@ -15,6 +15,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class GameOverPanel extends JPanel {
+	
+	// made public for testing purposes
+	public JButton newGameButton;
+	public JButton exitButton;
+	public CardLayout cards;
 
 	/**
 	 * Create the panel.
@@ -46,7 +51,7 @@ public class GameOverPanel extends JPanel {
 		panel_1.add(panel_2, BorderLayout.SOUTH);
 		panel_2.setLayout(new MigLayout("", "[grow]", "[][][][grow]"));
 
-		JButton newGameButton = new JButton("New Game");
+		newGameButton = new JButton("New Game");
 		newGameButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel_2.add(newGameButton, "cell 0 0,grow");
 
@@ -54,7 +59,7 @@ public class GameOverPanel extends JPanel {
 		hiScoresButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel_2.add(hiScoresButton, "cell 0 1,grow");
 
-		JButton exitButton = new JButton("Exit Game");
+		exitButton = new JButton("Exit Game");
 		exitButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		panel_2.add(exitButton, "cell 0 2,grow");
 
@@ -65,7 +70,7 @@ public class GameOverPanel extends JPanel {
 		newGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JPanel parent = getMainPanel();
-				CardLayout cards = (CardLayout) (parent.getLayout());
+				cards = (CardLayout) (parent.getLayout());
 				cards.first(parent);
 			}
 		});
@@ -73,7 +78,7 @@ public class GameOverPanel extends JPanel {
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JPanel parent = getMainPanel();
-				CardLayout cards = (CardLayout) (parent.getLayout());
+				cards = (CardLayout) (parent.getLayout());
 				cards.first(parent);
 			}
 		});
