@@ -163,40 +163,14 @@ public class SunDevilDiceTest {
 		DiePanel diepanel = new DiePanel();
 		assertNotNull(diepanel);
 	}
-
-	// ##### Test GameOverPanel class #####
-	
-	// test new game button
-	@Test
-	public void testNewGameButton() {
-		GameOverPanel gameover = new GameOverPanel("results", "winner");
-		gameover.newGameButton.doClick();
-		assertNotNull(gameover.cards);
-	}
-	
-	// test exit button
-	@Test
-	public void testExitButton() {
-		GameOverPanel gameover = new GameOverPanel("results", "winner");
-		gameover.exitButton.doClick();
-		assertNotNull(gameover.cards);
-	}
 	
 	// ##### Test TurnPanel class #####
-	
-	// test endGame method
-	@Test
-	public void testEndGame() {
-		Vector<String> players = new Vector<String>();
-		TurnPanel turnpanel = new TurnPanel(players);
-		turnpanel.endGame("meow");
-		assertNotNull(turnpanel.cards);
-	}
 	
 	// test updateTurnLabel method
 	@Test
 	public void testUpdateTurnLabel() {
 		Vector<String> players = new Vector<String>();
+		players.add("Snoop Dogg");
 		TurnPanel turnpanel = new TurnPanel(players);
 		turnpanel.updateTurnLabel("meow");
 		assertEquals("Turn: meow", turnpanel.turnLabel.getText());
@@ -206,9 +180,12 @@ public class SunDevilDiceTest {
 	@Test
 	public void testUpdateRoundScoreLabel() {
 		Vector<String> players = new Vector<String>();
+		players.add("Snoop Dogg");
 		TurnPanel turnpanel = new TurnPanel(players);
 		turnpanel.updateRoundScoreLabel(10);
 		assertEquals("Round Score: 10", turnpanel.roundScoreLabel.getText());
 	}
+	
+	
 
 }
