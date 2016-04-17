@@ -28,9 +28,9 @@ The project is composed of three sprints, ending 4/1, 4/15, and 4/29.  Sprint de
 
 #### Week 2 – 3: 37%
 - [x]	50% of the backlog features should be complete
-- [ ]	Documentation should be updated to reflect any changes made during the development cycle
+- [x]	Documentation should be updated to reflect any changes made during the development cycle
 - [x]	Code should compile without errors
-- [ ]	Unit tests for implemented features
+- [x]	Unit tests for implemented features
 
 #### Rubric for Week 2-3:
 *	Documentation: 10 pts
