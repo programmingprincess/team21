@@ -25,46 +25,48 @@ public class GameOverPanel extends JPanel {
 	 * Create the panel.
 	 */
 	public GameOverPanel(String results, String winner) {
-		setBackground(Color.WHITE);
+		setBackground(Color.BLACK);
 		setLayout(new MigLayout("", "[grow][grow][grow][grow]", "[grow]"));
 
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		add(panel, "cell 0 0,grow");
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.WHITE);
-		add(panel_1, "cell 1 0 2 1,grow");
-		panel_1.setLayout(new BorderLayout(0, 0));
+		JPanel centerPanel = new JPanel();
+		centerPanel.setBackground(Color.decode(MainWindow.maroon));
+		add(centerPanel, "cell 1 0 2 1,grow");
+		centerPanel.setLayout(new BorderLayout(0, 0));
 
 		JLabel resultLabel = new JLabel(results);
+		resultLabel.setForeground(Color.decode(MainWindow.gold));
 		resultLabel.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(resultLabel, BorderLayout.CENTER);
+		centerPanel.add(resultLabel, BorderLayout.CENTER);
 
 		JLabel winnerLabel = new JLabel("Winner: " + winner);
 		winnerLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		winnerLabel.setFont(new Font("Narkisim", Font.BOLD, 30));
-		panel_1.add(winnerLabel, BorderLayout.NORTH);
+		centerPanel.add(winnerLabel, BorderLayout.NORTH);
 
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.SOUTH);
-		panel_2.setLayout(new MigLayout("", "[grow]", "[][][][grow]"));
+		JPanel buttonsPanel = new JPanel();
+		buttonsPanel.setBackground(Color.decode(MainWindow.gold));
+		centerPanel.add(buttonsPanel, BorderLayout.SOUTH);
+		buttonsPanel.setLayout(new MigLayout("", "[grow]", "[][][][grow]"));
 
 		newGameButton = new JButton("New Game");
 		newGameButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel_2.add(newGameButton, "cell 0 0,grow");
+		buttonsPanel.add(newGameButton, "cell 0 0,grow");
 
 		JButton hiScoresButton = new JButton("View High Scores");
 		hiScoresButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel_2.add(hiScoresButton, "cell 0 1,grow");
+		buttonsPanel.add(hiScoresButton, "cell 0 1,grow");
 
 		exitButton = new JButton("Exit Game");
 		exitButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		panel_2.add(exitButton, "cell 0 2,grow");
+		buttonsPanel.add(exitButton, "cell 0 2,grow");
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(Color.WHITE);
+		panel_3.setBackground(Color.BLACK);
 		add(panel_3, "cell 3 0,grow");
 
 		newGameButton.addActionListener(new ActionListener() {
@@ -77,9 +79,7 @@ public class GameOverPanel extends JPanel {
 
 		exitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				JPanel parent = getMainPanel();
-				cards = (CardLayout) (parent.getLayout());
-				cards.first(parent);
+				System.exit(0);
 			}
 		});
 	}

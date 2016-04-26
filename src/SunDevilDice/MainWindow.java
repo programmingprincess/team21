@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import java.awt.CardLayout;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+
 import java.awt.Color;
 
 public class MainWindow {
@@ -16,6 +18,9 @@ public class MainWindow {
 	private JPanel mainPanel;
 	private GameScreen gameScreen;
 
+	public static String maroon = "#96203D";
+	public static String gold = "#FEC927";
+
 	/**
 	 * Launch the application.
 	 */
@@ -23,6 +28,7 @@ public class MainWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 					MainWindow window = new MainWindow();
 					window.frmSunDevilDice.setVisible(true);
 				} catch (Exception e) {
@@ -50,7 +56,7 @@ public class MainWindow {
 		frmSunDevilDice.getContentPane().setLayout(new BorderLayout(0, 0));
 
 		mainPanel = new JPanel();
-		mainPanel.setBackground(Color.WHITE);
+		mainPanel.setBackground(Color.BLACK);
 		frmSunDevilDice.getContentPane().add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setLayout(new CardLayout(0, 0));
 
