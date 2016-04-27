@@ -149,6 +149,7 @@ public class Actions implements GameInterface {
 		try {
 			ScoreObj currentScore;
 			in = new BufferedReader(new FileReader("scores.txt"));
+			highScores = new Vector<ScoreObj>();
 			String line = "";
 	        while ((line = in.readLine()) != null) {
 	            String parts[] = line.split("\t");
@@ -205,5 +206,19 @@ public class Actions implements GameInterface {
 	 */
 	public void resetScore(){
 		scoreDictionary.put(playerList.get(turnNumber), 0);
+	}
+	
+	/**
+	 * returns a string of local high scores
+	 * 
+	 * @return high score string
+	 */
+	public String retrieveScores() {
+		loadScores();
+		String hScores = "";
+		for(ScoreObj so : highScores) {
+			hScores += so.name + " " + so.score + "\n";
+		}
+		return hScores;
 	}
 }

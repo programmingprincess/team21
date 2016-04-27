@@ -164,11 +164,7 @@ public class SetupScreen extends JPanel {
 		// show local high score list
 		hiScoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				currentGame.loadScores();
-				String hScores = "";
-				for(ScoreObj so : currentGame.highScores) {
-					hScores += so.name + " " + so.score + "\n";
-				}
+				String hScores = currentGame.retrieveScores();
 				JOptionPane.showMessageDialog(null, hScores, "High Scores", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
