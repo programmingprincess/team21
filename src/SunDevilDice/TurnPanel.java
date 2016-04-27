@@ -13,6 +13,8 @@ import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.*;
+import javax.swing.*;
 
 public class TurnPanel extends JPanel {
 
@@ -22,6 +24,8 @@ public class TurnPanel extends JPanel {
 	JLabel turnLabel;
 	JLabel roundScoreLabel;
 	CardLayout cards;
+	
+	JButton holdButton, rollButton;
 
 	Die die1; // the 3 dice
 	Die die2;
@@ -32,6 +36,8 @@ public class TurnPanel extends JPanel {
 	String currentPlayer;
 
 	Actions currentGame;
+	
+	boolean over = false;
 
 	/**
 	 * Create the panel.
@@ -73,12 +79,12 @@ public class TurnPanel extends JPanel {
 		add(controlsPanel, "cell 0 2 3 1,growx,aligny center");
 		controlsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JButton rollButton = new JButton("Roll");
+		rollButton = new JButton("Roll");
 		rollButton.setMnemonic('r');
 		rollButton.setFont(new Font("Narkisim", Font.PLAIN, 20));
 		controlsPanel.add(rollButton);
 
-		JButton holdButton = new JButton("Hold");
+		holdButton = new JButton("Hold");
 		holdButton.setMnemonic('h');
 		holdButton.setFont(new Font("Narkisim", Font.PLAIN, 20));
 		controlsPanel.add(holdButton);
@@ -91,7 +97,12 @@ public class TurnPanel extends JPanel {
 
 		diePanel3 = new DiePanel();
 		add(diePanel3, "cell 2 3,grow");
+		
 
+		
+
+
+		
 		rollButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 
@@ -104,13 +115,17 @@ public class TurnPanel extends JPanel {
 				String badRoll = "Sorry! You rolled a " + sum + " and lost your turn.\nNow it's ";
 
 				if (sum == 10 || sum == 11) {
+					over = true;
 					setCurrentPlayer(currentGame.nextTurn());
 					updateTurnLabel(currentPlayer);
 					updateRoundScoreLabel(0);
 					showRoll(die1.getFace(), die2.getFace(), die3.getFace());
 					JOptionPane.showMessageDialog(null, badRoll + currentPlayer + "'s turn.", "Lost Turn",
 							JOptionPane.PLAIN_MESSAGE);
+					computerRound();
+					over = false;
 				} else if (sum == 18) {
+					over = true;
 					currentGame.resetScore();
 					setCurrentPlayer(currentGame.nextTurn());
 					updateTurnLabel(currentPlayer);
@@ -118,15 +133,20 @@ public class TurnPanel extends JPanel {
 					showRoll(die1.getFace(), die2.getFace(), die3.getFace());
 					JOptionPane.showMessageDialog(null, terribleRoll + currentPlayer + "'s turn.", "Lost Turn",
 							JOptionPane.PLAIN_MESSAGE);
+					computerRound();
+					over = false;
 				} else if (sum == 3) {
 					currentGame.updateRoundScore(multiplier * 18);
 					updateRoundScoreLabel(currentGame.getRoundScore());
+					computerRound();
 				} else if (die1.getFace() == die2.getFace() && die2.getFace() == die3.getFace()) {
 					currentGame.updateRoundScore(multiplier * sum);
 					updateRoundScoreLabel(currentGame.getRoundScore());
+					computerRound();
 				} else {
 					currentGame.updateRoundScore(sum);
 					updateRoundScoreLabel(currentGame.getRoundScore());
+					computerRound();
 				}
 
 				showRoll(die1.getFace(), die2.getFace(), die3.getFace());
@@ -150,9 +170,33 @@ public class TurnPanel extends JPanel {
 					JOptionPane.showMessageDialog(null, hold + currentPlayer + "'s turn.", "Hold",
 							JOptionPane.PLAIN_MESSAGE);
 				}
+				computerRound();
 			}
 
 		});
+		
+		boolean showing = playerPanel.isVisible();
+		if(showing)
+			computerRound();
+		else
+			System.out.println("Not showing");
+	}
+	
+
+	
+	
+	public void computerRound() {
+		if(currentPlayer.length() >= 9) {
+			if(currentPlayer.substring(0, 9).compareToIgnoreCase("Computer ") == 0) {
+				int random = (int )(Math.random() * 10 + 1);
+				System.out.println(random);
+				if(random < 9) {
+					rollButton.doClick();
+				} else {
+					holdButton.doClick();
+				}
+			}
+		}
 	}
 
 	/**
