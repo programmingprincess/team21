@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -57,9 +58,9 @@ public class GameOverPanel extends JPanel {
 		newGameButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
 		buttonsPanel.add(newGameButton, "cell 0 0,grow");
 
-		JButton hiScoresButton = new JButton("View High Scores");
+		/*JButton hiScoresButton = new JButton("View High Scores");
 		hiScoresButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		buttonsPanel.add(hiScoresButton, "cell 0 1,grow");
+		buttonsPanel.add(hiScoresButton, "cell 0 1,grow");*/
 
 		exitButton = new JButton("Exit Game");
 		exitButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
@@ -81,7 +82,7 @@ public class GameOverPanel extends JPanel {
 			public void actionPerformed(ActionEvent event) {
 				System.exit(0);
 			}
-		});
+		});		
 	}
 
 	// returns the parent of this panel
