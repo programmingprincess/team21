@@ -66,7 +66,7 @@ public class MainWindow {
 		setupScreen.startButton.addActionListener(new ActionListener() {
 			// handles start button clicks
 			public void actionPerformed(ActionEvent event) {
-				if (setupScreen.playerList.size() > 0) {
+				if (setupScreen.playerList.size() > 0 && !setupScreen.playerList.get(0).contains("Computer ")) {
 					gameScreen = new GameScreen(setupScreen.playerList);
 					mainPanel.add(gameScreen, "game");
 					CardLayout cards = (CardLayout) (mainPanel.getLayout());

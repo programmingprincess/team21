@@ -172,7 +172,7 @@ public class Actions implements GameInterface {
 	private void addScore(String playerName, int score) {
 		ScoreObj currentScore = new ScoreObj(playerName, score);
 		int index = 0;
-		while(score < highScores.get(index).score && index < 10) {
+		while(index < highScores.size() && score < highScores.get(index).score) {
 			index++;
 		}
 		if(index != 10) {
@@ -191,7 +191,6 @@ public class Actions implements GameInterface {
 		try {
 			pw = new PrintWriter("scores.txt", "UTF-8");
 			for(ScoreObj so : highScores) {
-				System.out.println(so.name + "\t" + so.score);
 				pw.println(so.name + "\t" + so.score);
 			}
 			pw.close();

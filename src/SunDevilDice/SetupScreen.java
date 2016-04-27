@@ -99,7 +99,7 @@ public class SetupScreen extends JPanel {
 				String tempName = playerNameField.getText().trim();
 
 				if (!tempName.equals("") && !playerList.contains(tempName) && playerList.size() < maxPlayerCount) {
-					playerList.addElement(tempName);
+					playerList.add(0, tempName);
 					list.updateUI();
 					playerNameField.setText("");
 				}
