@@ -2,6 +2,7 @@ package SunDevilDice;
 
 import java.util.HashMap;
 import java.util.Vector;
+import java.io.*;
 
 public class Actions implements GameInterface {
 	
@@ -10,6 +11,7 @@ public class Actions implements GameInterface {
 	private int turnNumber;		// the turn number corresponding to the index of a player
 	private Vector<String> playerList;	// a list of player in the current game
 	public static final int SCORE_THRESHOLD = 200;	// the score threshold needed to win the game
+	public Vector<ScoreObj> highScores = new Vector<ScoreObj>(); // loads and stores local high score list
 	
 	/**
 	 * Constructs an actions object
@@ -96,6 +98,7 @@ public class Actions implements GameInterface {
 	 * @return a string representation of scores
 	 */
 	private String getScoresString(){
+		loadScores();
 		String scores = "<html><table>";		//return scores in the form of a table
 		
 		for(int playerIndex = 0; playerIndex < playerList.size(); playerIndex++){
@@ -105,6 +108,7 @@ public class Actions implements GameInterface {
 		}
 		
 		scores += "</table></html>";
+		saveScores();
 		return scores;
 	}
 	
@@ -127,13 +131,74 @@ public class Actions implements GameInterface {
 				value = -1;
 			}
 			
-			if( value > max){
+			if(value > max){
 				max = value;
 				maxPlayer = playerName;
 			}
 		}
 		scoreDictionary.remove(maxPlayer);
+		addScore(maxPlayer, max);
 		return "<td>" + maxPlayer + "</td><td>" + max + "</td>";
+	}
+	
+	/** 
+	 * Loads local file high score list
+	 */
+	public void loadScores() {
+		BufferedReader in;
+		try {
+			ScoreObj currentScore;
+			in = new BufferedReader(new FileReader("scores.txt"));
+			highScores = new Vector<ScoreObj>();
+			String line = "";
+	        while ((line = in.readLine()) != null) {
+	            String parts[] = line.split("\t");
+	            currentScore = new ScoreObj(parts[0], Integer.parseInt(parts[1]));
+	            highScores.add(currentScore);
+	        }
+	        in.close();
+		}
+		catch(Exception exception) {
+			
+		}
+	}
+	
+	/**
+	 * Adds each individual score from current game to high score list if possible
+	 * 
+	 * @param playerName name of player
+	 * @param score number of points scored by player
+	 */
+	private void addScore(String playerName, int score) {
+		ScoreObj currentScore = new ScoreObj(playerName, score);
+		int index = 0;
+		while(score < highScores.get(index).score && index < 10) {
+			index++;
+		}
+		if(index != 10) {
+			if(highScores.size() == 10) {
+				highScores.remove(9);
+			}
+			highScores.add(index, currentScore);
+		}
+	}
+	
+	/**
+	 * Saves scoreboard back to local file
+	 */
+	private void saveScores() {
+		PrintWriter pw;
+		try {
+			pw = new PrintWriter("scores.txt", "UTF-8");
+			for(ScoreObj so : highScores) {
+				System.out.println(so.name + "\t" + so.score);
+				pw.println(so.name + "\t" + so.score);
+			}
+			pw.close();
+		}
+		catch(Exception exception) {
+			
+		}
 	}
 
 	/**
@@ -141,5 +206,19 @@ public class Actions implements GameInterface {
 	 */
 	public void resetScore(){
 		scoreDictionary.put(playerList.get(turnNumber), 0);
+	}
+	
+	/**
+	 * returns a string of local high scores
+	 * 
+	 * @return high score string
+	 */
+	public String retrieveScores() {
+		loadScores();
+		String hScores = "";
+		for(ScoreObj so : highScores) {
+			hScores += so.name + " " + so.score + "\n";
+		}
+		return hScores;
 	}
 }

@@ -21,6 +21,7 @@ public class SetupScreen extends JPanel {
 	public Vector<String> playerList;
 	public int AICount = 0;
 	private int maxPlayerCount = 8;
+	private Actions currentGame;
 
 	/**
 	 * Create the panel.
@@ -88,6 +89,8 @@ public class SetupScreen extends JPanel {
 		panel_3.setBackground(Color.BLACK);
 		add(panel_3, "cell 0 2,grow");
 
+		currentGame = new Actions(playerList);
+		
 		// Add JTextField text to the list; make a new player seat on game
 		// screen
 		addPlayerButton.addActionListener(new ActionListener() {
@@ -155,6 +158,14 @@ public class SetupScreen extends JPanel {
 								+ "\t-If a player rolls three one's, each die will be treated as a value of 6 instead of one. (Rolling three 1's will result in a score of 6 x 3 = 18 x 3 = 54).\n\n"
 								+ "The game will terminate when a player's total score reaches 200 points or more declaring that player the winner!",
 						"Instructions", JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		
+		// show local high score list
+		hiScoreButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String hScores = currentGame.retrieveScores();
+				JOptionPane.showMessageDialog(null, hScores, "High Scores", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 	}
