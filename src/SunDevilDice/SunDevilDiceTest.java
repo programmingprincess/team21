@@ -122,6 +122,21 @@ public class SunDevilDiceTest {
 		assertEquals(66, testGame.getTotalScore("player3"));
 	}
 	
+	// test getWinner method
+	@Test
+	public void testGetWinner() {
+		Vector<String> playerList = new Vector<>();
+		playerList.add("player1");
+		playerList.add("player2");
+		Actions testGame = new Actions(playerList);
+		String player1 = testGame.startGame();
+		testGame.updateRoundScore(10); 
+		String player2 = testGame.nextTurn();
+		testGame.updateRoundScore(20);
+		testGame.hold(); // set player 2 score to round score = 20
+		assertEquals("<html><table><tr><td>player2</td><td>20</td></tr><tr><td>player1</td><td>0</td></tr></table></html>", testGame.getWinner());
+	}
+	
 	// ##### Test SetupScreen Class #####
 	
 	//test add player button functionality
@@ -186,6 +201,14 @@ public class SunDevilDiceTest {
 		assertEquals("Round Score: 10", turnpanel.roundScoreLabel.getText());
 	}
 	
+	// ##### Test ScoreObj method #####
 	
+	// test scoreObj constructor
+	@Test
+	public void testScoreObj() {
+		ScoreObj score = new ScoreObj("name", 10);
+		assertEquals("name", score.name);
+		assertEquals(10, score.score);
+	}
 
 }
