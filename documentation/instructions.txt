@@ -15,3 +15,4 @@ Three dice will be used in this game. The goal is to be the first player to reac
 2. Rolling three of a kind (other than 6's) will allow player to triple their score for that roll. (For example: rolling three 3's will result in a score of 9 x 3 = 27). If a player rolls three one's, each die will be treated as a value of 6 instead of one. (Rolling three 1's will result in a score of 6 x 3 = 18 x 3 = 54). 
 
 3. The game will terminate when a player reaches the scoring threshold. The highest score takes the win! 
+  Saved High-Scores are modified by the number of rounds taken to win score*(100-rounds) .
