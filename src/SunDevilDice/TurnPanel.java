@@ -38,6 +38,8 @@ public class TurnPanel extends JPanel {
 	Actions currentGame;
 	
 	boolean over = false;
+	
+	int random;
 
 	/**
 	 * Create the panel.
@@ -99,10 +101,6 @@ public class TurnPanel extends JPanel {
 		add(diePanel3, "cell 2 3,grow");
 		
 
-		
-
-
-		
 		rollButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 
@@ -114,6 +112,7 @@ public class TurnPanel extends JPanel {
 				String terribleRoll = "Ouch. 6 6 6. You just lost all your points.\nNow it's ";
 				String badRoll = "Sorry! You rolled a " + sum + " and lost your turn.\nNow it's ";
 
+				// player rolled a 10 or 11
 				if (sum == 10 || sum == 11) {
 					over = true;
 					setCurrentPlayer(currentGame.nextTurn());
@@ -124,7 +123,9 @@ public class TurnPanel extends JPanel {
 							JOptionPane.PLAIN_MESSAGE);
 					computerRound();
 					over = false;
-				} else if (sum == 18) {
+				} 
+				// player rolled 3 sixes
+				else if (sum == 18) {
 					over = true;
 					currentGame.resetScore();
 					setCurrentPlayer(currentGame.nextTurn());
@@ -135,15 +136,21 @@ public class TurnPanel extends JPanel {
 							JOptionPane.PLAIN_MESSAGE);
 					computerRound();
 					over = false;
-				} else if (sum == 3) {
+				} 
+				// player rolled 3 ones
+				else if (sum == 3) {
 					currentGame.updateRoundScore(multiplier * 18);
 					updateRoundScoreLabel(currentGame.getRoundScore());
 					computerRound();
-				} else if (die1.getFace() == die2.getFace() && die2.getFace() == die3.getFace()) {
+				} 
+				// player rolled other three-of-a-kind other than ones and sixes
+				else if (die1.getFace() == die2.getFace() && die2.getFace() == die3.getFace()) {
 					currentGame.updateRoundScore(multiplier * sum);
 					updateRoundScoreLabel(currentGame.getRoundScore());
 					computerRound();
-				} else {
+				} 
+				// player rolled dice of differing values
+				else {
 					currentGame.updateRoundScore(sum);
 					updateRoundScoreLabel(currentGame.getRoundScore());
 					computerRound();
@@ -184,11 +191,13 @@ public class TurnPanel extends JPanel {
 	
 
 	
-	
+	/**
+	 *  sets up AI for the computer's turn
+	 */
 	public void computerRound() {
 		if(currentPlayer.length() >= 9) {
 			if(currentPlayer.substring(0, 9).compareToIgnoreCase("Computer ") == 0) {
-				int random = (int )(Math.random() * 10 + 1);
+				random = (int )(Math.random() * 10 + 1);
 				if(random < 9) {
 					rollButton.doClick();
 				} else {

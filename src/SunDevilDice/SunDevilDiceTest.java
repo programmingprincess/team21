@@ -181,6 +181,15 @@ public class SunDevilDiceTest {
 	
 	// ##### Test TurnPanel class #####
 	
+	// test turnPanel constructor
+	@Test
+	public void testTurnPanelConstructor() {
+		Vector<String> players = new Vector<String>();
+		players.add("Snoop Dogg");
+		TurnPanel turnpanel = new TurnPanel(players);
+		assertNotNull(turnpanel);
+	}
+	
 	// test updateTurnLabel method
 	@Test
 	public void testUpdateTurnLabel() {
@@ -201,7 +210,17 @@ public class SunDevilDiceTest {
 		assertEquals("Round Score: 10", turnpanel.roundScoreLabel.getText());
 	}
 	
-	// ##### Test ScoreObj method #####
+	// test computerRound AI functionality
+	@Test
+	public void testComputerRound() {
+		Vector<String> players = new Vector<String>();
+		players.add("Snoop Dogg");
+		TurnPanel turnpanel = new TurnPanel(players);
+		turnpanel.computerRound();
+		assertNotNull(turnpanel.random);
+	}
+	
+	// ##### Test ScoreObj #####
 	
 	// test scoreObj constructor
 	@Test
