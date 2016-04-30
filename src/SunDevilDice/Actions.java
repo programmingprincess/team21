@@ -170,16 +170,18 @@ public class Actions implements GameInterface {
 	 * @param score number of points scored by player
 	 */
 	private void addScore(String playerName, int score) {
-		ScoreObj currentScore = new ScoreObj(playerName, score);
-		int index = 0;
-		while(index < highScores.size() && score < highScores.get(index).score) {
-			index++;
-		}
-		if(index != 10) {
-			if(highScores.size() == 10) {
-				highScores.remove(9);
+		if(!playerName.contains("Computer ")) {
+			ScoreObj currentScore = new ScoreObj(playerName, score);
+			int index = 0;
+			while(index < highScores.size() && score < highScores.get(index).score) {
+				index++;
 			}
-			highScores.add(index, currentScore);
+			if(index != 10) {
+				if(highScores.size() == 10) {
+					highScores.remove(9);
+				}
+				highScores.add(index, currentScore);
+			}
 		}
 	}
 	
