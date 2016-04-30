@@ -47,35 +47,46 @@ public class SetupScreen extends JPanel {
 		JPanel centerPanel = new JPanel(); // add panel
 		centerPanel.setBackground(Color.decode(MainWindow.maroon));
 		add(centerPanel, "cell 1 0 1 3,grow");
-		centerPanel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][][]"));
+		centerPanel.setLayout(new MigLayout("", "[grow][grow][grow]", "[grow][grow][grow][grow][][]"));
+
+		JPanel titlePanel = new JPanel();
+		titlePanel.setBackground(Color.decode(MainWindow.maroon));
+		centerPanel.add(titlePanel, "cell 0 0 3 1,grow");
+		titlePanel.setLayout(new BorderLayout(0, 0));
+
+		JLabel titleLabel = new JLabel("Sun Devil Dice");
+		titleLabel.setForeground(Color.decode(MainWindow.gold));
+		titleLabel.setFont(new Font("Narkisim", Font.BOLD, 55));
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		titlePanel.add(titleLabel, BorderLayout.CENTER);
 
 		playerNameField = new JTextField(); // add field for user to enter name
 		playerNameField.setPreferredSize(new Dimension(200, 38));
-		centerPanel.add(playerNameField, "cell 0 0 3 1,growx,aligny center");
+		centerPanel.add(playerNameField, "cell 0 1 3 1,growx,aligny center");
 
 		addPlayerButton = new JButton("Add Player"); // add action buttons
 		addPlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(addPlayerButton, "cell 0 0 3 1,growx,aligny center");
+		centerPanel.add(addPlayerButton, "cell 0 1 3 1,growx,aligny center");
 
 		deletePlayerButton = new JButton("Delete Player");
 		deletePlayerButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(deletePlayerButton, "cell 0 1 3 1,growx,aligny center");
+		centerPanel.add(deletePlayerButton, "cell 0 2 3 1,growx,aligny center");
 
 		addAiButton = new JButton("Add AI");
 		addAiButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(addAiButton, "cell 0 2 3 1,growx,aligny center");
+		centerPanel.add(addAiButton, "cell 0 3 3 1,growx,aligny center");
 
 		hiScoreButton = new JButton("View High Scores");
 		hiScoreButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(hiScoreButton, "cell 0 3 3 1,growx,aligny center");
+		centerPanel.add(hiScoreButton, "cell 0 4 3 1,growx,aligny center");
 
 		startButton = new JButton("Start Game");
 		startButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(startButton, "cell 0 4 3 1,growx,aligny center");
+		centerPanel.add(startButton, "cell 0 5 3 1,growx,aligny center");
 
 		JButton instructionsButton = new JButton("Instructions");
 		instructionsButton.setFont(new Font("Narkisim", Font.PLAIN, 24));
-		centerPanel.add(instructionsButton, "cell 0 3 1 4,grow");
+		centerPanel.add(instructionsButton, "cell 0 4 3 1,grow");
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.BLACK);
@@ -90,7 +101,7 @@ public class SetupScreen extends JPanel {
 		add(panel_3, "cell 0 2,grow");
 
 		currentGame = new Actions(playerList);
-		
+
 		// Add JTextField text to the list; make a new player seat on game
 		// screen
 		addPlayerButton.addActionListener(new ActionListener() {
@@ -160,7 +171,7 @@ public class SetupScreen extends JPanel {
 						"Instructions", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
-		
+
 		// show local high score list
 		hiScoreButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

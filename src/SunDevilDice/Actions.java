@@ -9,6 +9,7 @@ public class Actions implements GameInterface {
 	private HashMap<String, Integer> scoreDictionary = new HashMap<String, Integer>(); // stores a map of player names to scores
 	private int roundScore;		// the score for the current round
 	private int turnNumber;		// the turn number corresponding to the index of a player
+	private int roundNumber;	// the current roundNumber
 	private Vector<String> playerList;	// a list of player in the current game
 	public static final int SCORE_THRESHOLD = 200;	// the score threshold needed to win the game
 	public Vector<ScoreObj> highScores = new Vector<ScoreObj>(); // loads and stores local high score list
@@ -32,7 +33,13 @@ public class Actions implements GameInterface {
 	 * @return the player's score
 	 */
 	public int getTotalScore(String player) {
-		return scoreDictionary.get(player);
+		try{
+			return scoreDictionary.get(player);
+		}
+		catch(Exception exception){
+			// ignore
+		}
+		return 0;
 	}
 	
 	/**
@@ -69,6 +76,7 @@ public class Actions implements GameInterface {
 		// loop back to the first player at the end
 		if(turnNumber >= playerList.size()){
 			turnNumber = 0;
+			roundNumber++;
 		}
 		
 		roundScore = 0; // reset score for the next turn
@@ -173,13 +181,14 @@ public class Actions implements GameInterface {
 		if(!playerName.contains("Computer ")) {
 			ScoreObj currentScore = new ScoreObj(playerName, score);
 			int index = 0;
-			while(index < highScores.size() && score < highScores.get(index).score) {
+			while(index < highScores.size() && score*(100 - roundNumber) < highScores.get(index).score) {
 				index++;
 			}
 			if(index != 10) {
 				if(highScores.size() == 10) {
 					highScores.remove(9);
 				}
+				currentScore.score = currentScore.score*(100 - roundNumber);
 				highScores.add(index, currentScore);
 			}
 		}
